@@ -13,20 +13,24 @@
 
 // Home Page
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+Auth::routes();
+
 // Product Management
-Route::get('/product', 'ProductController@index');
-Route::get('/product/search', 'ProductController@search');
-Route::get('/product/edit/{id?}', 'ProductController@edit');
-Route::post('/product/search', 'ProductController@search');
-Route::post('/product/update', 'ProductController@update');
-Route::post('/product/insert', 'ProductController@insert');
-Route::get('/product/remove/{id}', 'ProductController@remove');
+Route::group(['prefix' => 'product', 'middleware' => 'auth'], function() {
+    Route::get('/', 'ProductController@index');
+    Route::get('/search', 'ProductController@search');
+    Route::post('/search', 'ProductController@search');
+    Route::get('/edit/{id?}', 'ProductController@edit');
+    Route::post('/update', 'ProductController@update');
+    Route::post('/insert', 'ProductController@insert');
+    Route::get('/remove/{id}', 'ProductController@remove');
+});
 
 // Home
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 // Cart
 Route::get('/cart/view', 'CartController@viewCart');

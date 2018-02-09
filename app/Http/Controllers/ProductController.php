@@ -10,11 +10,11 @@ use Input, Config, Validator, Image;
 
 class ProductController extends Controller
 {
+
     // default rp
     var $rp = 10;
     
     public function __construct() {
-        // get config from app.php
         $this->rp = Config::get('app.result_per_page');
     }
 
