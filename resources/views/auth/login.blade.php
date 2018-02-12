@@ -55,13 +55,18 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     เข้าสู่ระบบ
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     ลืมรหัสผ่าน ?
                                 </a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <a href="redirect" class="btn btn-primary"><i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook</a>
                             </div>
                         </div>
                     </form>

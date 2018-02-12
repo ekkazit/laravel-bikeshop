@@ -173,6 +173,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         // Image manipulation
         Intervention\Image\ImageServiceProvider::class,
+        // Social Login
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
             * Application Service Providers...
@@ -242,6 +244,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         // Our cart facade
         'Cart'=> App\Facades\Cart::class,
+        // Social login
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

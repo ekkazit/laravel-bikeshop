@@ -37,3 +37,7 @@ Route::get('/cart/view', 'CartController@viewCart');
 Route::get('/cart/add/{id}', 'CartController@addToCart');
 Route::get('/cart/delete/{id}', 'CartController@deleteCart');
 Route::get('/cart/update/{id}/{qty}', 'CartController@updateCart')->middleware('cart');
+
+
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
