@@ -37,7 +37,11 @@ Route::get('/cart/view', 'CartController@viewCart');
 Route::get('/cart/add/{id}', 'CartController@addToCart');
 Route::get('/cart/delete/{id}', 'CartController@deleteCart');
 Route::get('/cart/update/{id}/{qty}', 'CartController@updateCart')->middleware('cart');
+Route::get('/cart/checkout', 'CartController@checkout');
+Route::get('/cart/viewpo', 'CartController@view_po');
+Route::get('/cart/complete', 'CartController@complete');
+Route::get('/cart/finish', 'CartController@finish_order');
 
-
+// Facebook login
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
