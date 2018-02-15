@@ -26,7 +26,7 @@
                 <div class="col-md-3" ng-repeat="p in products">
                     <!-- product card -->
                     <div class="panel panel-default bs-product-card">
-                        <img ng-src="@{p.image_url}">
+                        <img ng-src="@{'/' + p.image_url}">
                         <div class="panel-body">
                             <h4><a href="#">@{p.name}</a></h4>
                             <div class="form-group">

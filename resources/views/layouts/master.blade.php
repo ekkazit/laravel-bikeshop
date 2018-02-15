@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
     <!-- js -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/angular.min.js') }}"></script>
@@ -17,7 +18,7 @@
     <script src="{{ asset('vendor/chartjs/Chart.min.js') }}"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button"
@@ -31,20 +32,20 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ URL::to('home') }}">{{ __('messages.menu.home') }}</a></li>
+                    <li class="{{ Request::is('/') || Request::is('home') ? 'active' : '' }}"><a href="{{ URL::to('home') }}">{{ __('messages.menu.home') }}</a></li>
                     @guest
                     @else
-                    <li><a href="{{ URL::to('product') }}">{{ __('messages.menu.product') }}</a></li>
-                    <li><a href="{{ URL::to('chart') }}">{{ __('messages.menu.report') }}</a></li>
+                    <li class="{{ Request::is('product') ? 'active' : '' }}"><a href="{{ URL::to('product') }}">{{ __('messages.menu.product') }}</a></li>
+                    <li class="{{ Request::is('chart') ? 'active' : '' }}"><a href="{{ URL::to('chart') }}">{{ __('messages.menu.report') }}</a></li>
                     @endguest
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ URL::to('th') }}">TH</a></li>
-                    <li><a href="{{ URL::to('en') }}">EN</a></li>
+                    <li><a href="{{ URL::to('lang/th') }}">TH</a></li>
+                    <li><a href="{{ URL::to('lang/en') }}">EN</a></li>
                     <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> {{ __('messages.menu.cart') }} <span class="label label-danger">{!! count(Session::get('cart_items')) !!}</span></a></li>
                     @guest
-                    <li><a href="{{ route('login') }}">{{ __('messages.menu.login') }}</a></li>
-                    <li><a href="{{ route('register') }}">{{ __('messages.menu.register') }}</a></li>
+                    <li class="{{ Request::is('login') ? 'active' : '' }}"><a href="{{ route('login') }}">{{ __('messages.menu.login') }}</a></li>
+                    <li class="{{ Request::is('register') ? 'active' : '' }}"><a href="{{ route('register') }}">{{ __('messages.menu.register') }}</a></li>
                     @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

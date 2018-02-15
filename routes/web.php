@@ -32,7 +32,7 @@ Route::group(['prefix' => 'product', 'middleware' => 'auth'], function() {
 // Home
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/chart', 'HomeController@view_chart')->middleware('auth');
-Route::get('/{locale?}', 'HomeController@index')->name('home');
+Route::get('/lang/{locale?}', 'HomeController@index')->name('home');
 
 // Cart
 Route::get('/cart/view', 'CartController@viewCart');

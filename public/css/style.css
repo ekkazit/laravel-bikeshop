@@ -1,3 +1,43 @@
+body {
+    font-family: 'Prompt', sans-serif;
+    color: #444;
+    background-color: #f3f4f5;
+}
+
+/**/
+.navbar-inverse {
+    border: none;
+    background-color: #16A085;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+    background-color: #119278;
+}
+
+/**/
+.panel .panel-heading {
+    color: #fff;
+    background-color: #16A085;
+}
+
+.list-group-item.active, 
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    border-color: #16A085;
+    background-color: #16A085;
+}
+
+/**/
 .bs-table {
     margin: 0;
 }
@@ -58,7 +98,7 @@
     margin-top: 20px;
 }
 
-.bs-product-card .btn-success {
+.bs-product-card .btn {
     position: absolute;
     bottom: 15px;
     width: calc(100% - 30px);
