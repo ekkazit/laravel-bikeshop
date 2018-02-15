@@ -6,18 +6,18 @@
 <div class="container" ng-app="app" ng-controller="ctrl">
     <div class="row">
         <div class="col-md-3">
-            <h1 style="margin: 0 0 30px 0">สินค้าในร้าน</h1>
+            <h1 style="margin: 0 0 30px 0">{{ __('messages.product') }}</h1>
         </div>
         <div class="col-md-9">
             <div class="pull-right" style="margin-top: 10px">
-                <input type="text" class="form-control" ng-model="query" ng-keyup="searchProduct($event)" style="width:190px" placeholder="พิมพ์ชื่อสินค้าเพื่อค้นหา">
+                <input type="text" class="form-control" ng-model="query" ng-keyup="searchProduct($event)" style="width:190px" placeholder="{{ __('messages.placeholder') }}">
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
-                <a href="#" class="list-group-item" ng-class="{'active': category == null}" ng-click="getProductList(null)">ทั้งหมด</a>
+                <a href="#" class="list-group-item" ng-class="{'active': category == null}" ng-click="getProductList(null)">{{ __('messages.all') }}</a>
                 <a href="#" class="list-group-item" ng-repeat="c in categories" ng-class="{'active': category.id == c.id}" ng-click="getProductList(c)">@{c.name}</a>
             </div>
         </div>
@@ -33,7 +33,7 @@
                                 <div>คงเหลือ: @{p.stock_qty|number:0}</div>
                                 <div>ราคา: <strong>@{p.price|number:0}</strong></div>
                             </div>
-                            <a href="#" class="btn btn-success btn-block" ng-click="addToCart(p)"><i class="fa fa-shopping-cart"></i> หยิบใส่ตะกร้า</a>
+                            <a href="#" class="btn btn-success btn-block" ng-click="addToCart(p)"><i class="fa fa-shopping-cart"></i> {{ __('messages.addToCart') }}</a>
                         </div>
                     </div>
                     <!-- end product card -->

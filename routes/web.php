@@ -31,6 +31,8 @@ Route::group(['prefix' => 'product', 'middleware' => 'auth'], function() {
 
 // Home
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/chart', 'HomeController@view_chart')->middleware('auth');
+Route::get('/{locale?}', 'HomeController@index')->name('home');
 
 // Cart
 Route::get('/cart/view', 'CartController@viewCart');
@@ -45,3 +47,4 @@ Route::get('/cart/finish', 'CartController@finish_order');
 // Facebook login
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
+

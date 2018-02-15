@@ -74,6 +74,20 @@
                         <input type="text" class="form-control" id="cust_email" placeholder="อีเมล์ของท่าน">
                     </div>
                 </div>
+                <div class="panel-footer">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="DW2KAD2M8FK9Q">
+                        <input TYPE="hidden" name="charset" value="utf-8">
+                        <input type="hidden" name="currency_code" value="THB">
+                        <input type="hidden" name="business" value="อีเมล์ของคุณ@gmail.com">
+                        <input type="hidden" name="item_name" value="ชื่อสินค้าของคุณ">
+                        <input type="hidden" name="quantity" value="จำนวนที่ซื้อรวม">
+                        <input type="hidden" name="amount" value="จำนวนเงินที่ต้องชำระ">
+                        <input type="image" src="https://www.paypalobjects.com/th_TH/TH/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - วิธีชำระเงินแบบออนไลน์ที่ปลอดภัยกว่าและง่ายกว่า!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/th_TH/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -14,6 +14,7 @@
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/angular.min.js') }}"></script>
     <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('vendor/chartjs/Chart.min.js') }}"></script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -30,28 +31,32 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ URL::to('home') }}">หน้าแรก</a></li>
+                    <li><a href="{{ URL::to('home') }}">{{ __('messages.menu.home') }}</a></li>
                     @guest
                     @else
-                    <li><a href="{{ URL::to('product') }}">จัดการข้อมูลสินค้า</a></li>
-                    <li><a href="#">รายงาน</a></li>
+                    <li><a href="{{ URL::to('product') }}">{{ __('messages.menu.product') }}</a></li>
+                    <li><a href="{{ URL::to('chart') }}">{{ __('messages.menu.report') }}</a></li>
                     @endguest
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> ตะกร้า <span class="label label-danger">{!! count(Session::get('cart_items')) !!}</span></a></li>
+                    <li><a href="{{ URL::to('th') }}">TH</a></li>
+                    <li><a href="{{ URL::to('en') }}">EN</a></li>
+                    <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> {{ __('messages.menu.cart') }} <span class="label label-danger">{!! count(Session::get('cart_items')) !!}</span></a></li>
                     @guest
-                    <li><a href="{{ route('login') }}">ล็อกอิน</a></li>
-                    <li><a href="{{ route('register') }}">ลงทะเบียน</a></li>
+                    <li><a href="{{ route('login') }}">{{ __('messages.menu.login') }}</a></li>
+                    <li><a href="{{ route('register') }}">{{ __('messages.menu.register') }}</a></li>
                     @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }}
+                            <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out"></i> ออกจากระบบ
+                                    <i class="fa fa-sign-out"></i>
+                                    {{ __('messages.menu.logout') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
